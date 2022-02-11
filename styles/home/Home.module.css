@@ -10,55 +10,8 @@
 
 .home {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   background: rgb(75, 160, 75);
-}
-
-.header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  height: 70px;
-  width: 100%;
-  background: rgb(27, 75, 34);
-  min-height: var(--headerSize);
-}
-
-.header__list {
-  min-height: var(--headerSize);
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header__center {
-  display: flex;
-}
-
-.header_item {
-  color: #fff;
-  margin: 0 20px;
-  font-size: 18px;
-}
-
-.header_logo {}
-
-.header_auth button {
-  padding: 10px 20px;
-  color: #fff;
-  border-radius: 16px;
-  font-weight: bold;
-  background: rgba(14, 121, 32, 0.836);
-  transition: .3s;
-}
-
-.header_auth button:hover {
-  background: rgba(55, 160, 73, 0.836);
-}
-
-.header_auth button:active {
-  background: rgba(77, 151, 89, 0.836);
 }
 
 .home__main {
@@ -69,8 +22,8 @@
   justify-content: space-between;
 }
 
-.home__main_wrapper {
-
+.home__wrapper {
+  margin-bottom: 350px;
 }
 
 .home__left {
@@ -100,53 +53,6 @@
   margin-right: 10px;
 }
 
-
-.auth {
-  max-width: 400px;
-  color: #fff;
-  background: rgb(44, 44, 44);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 300px;
-  padding: 25px 20px;
-  border-radius: 9px;
-}
-
-.auth h1 {
-  margin: 20px 0;
-  font-weight: 500;
-}
-
-.auth p {
-  color: rgb(209, 209, 209);
-  line-height: 26px;
-  margin-bottom: 20px;
-}
-
-.btn_discord {
-  width: calc(100% - 20px);
-  font-size: 18px;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  background-color: rgb(100, 81, 187);
-}
-
-.btn_discord:active {
-  background-color: rgb(73, 54, 156);
-}
-
-.auth__btn_return {
-  border-radius: 6px;
-  width: calc(100% - 100px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0 10px;
-}
-
 .section__wrapper {
   background: rgb(32, 32, 32);
 }
@@ -157,19 +63,7 @@
   background: url("https://pepeland.net/assets/landing/image/blob_background.svg") 50%/cover;
 }
 
-.section__footer {
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  margin-top: 350px;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 20px 10px;
-  font-size: 14px;
-}
 
-.section__footer p {
-  margin: 5px 0;
-  margin-left: 20px;
-  line-height: 25px;
-}
 
 @media (max-width: 997px) {
   .home__main {
@@ -181,17 +75,6 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-  }
-}
-
-@media (max-width: 671px) {
-  .header_item {
-    margin: 0 10px;
-    font-size: 14px;
-  }
-  .header_auth button {
-    padding: 10px;
-    font-size: 12px;
   }
 }
 
@@ -207,16 +90,5 @@
   .home__left_btn {
     font-size: 14px;
     margin: 10px;
-  }
-}
-
-@media (max-width: 457px) {
-  .header_item {
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  .section__footer p {
-    font-size: 12px;
-    line-height: 20px;
   }
 }
