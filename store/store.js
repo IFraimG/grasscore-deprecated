@@ -6,11 +6,12 @@ import { createWrapper } from "next-redux-wrapper"
 // import { configureStore } from "@reduxjs/toolkit"
 import thunkMiddleware from "redux-thunk"
 import rootReducer from "./reducers/root.reducer";
+import rulesReducer from "./reducers/rules.reducer";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 export const reducers = combineReducers({
-  root: rootReducer
+  root: rootReducer, rules: rulesReducer
 })
 
 let store = () => createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))

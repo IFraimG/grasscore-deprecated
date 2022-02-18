@@ -1,20 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/home/Home.module.css'
 import HeadComponent from "../../components/withHead"
+import RulesPage from '../../components/rules/RulesPage'
+import { useSelector } from 'react-redux'
 
 const Rules = () => {
+  const listRules = useSelector((state) => state.rules.listRules)
+
   return (
-    <div className={styles.container}>
-      <HeadComponent
-        title="Правила сервера"
-        metaData={[
-          {metaName: "description", contentData: "Правила сервера GrassCore"}
-        ]} 
-        linkData={[{}]} 
-      />
-      efefe
-    </div>
+    <>
+      <RulesPage list={listRules} />
+    </>
   )
 }
 
