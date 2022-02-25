@@ -4,15 +4,6 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 
 const RulesPanel = (props) => {
-  const scrollToRule = (num) => {
-    if (typeof document !== "undefined") {
-      let element = document.getElementById("rule" + num)
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  }
 
   return (
     <div className={styles.rules__panel}>
@@ -21,9 +12,9 @@ const RulesPanel = (props) => {
         { props.list.map(item => {
           return (
             <div className={styles.rules__panel_item} key={item.num}>
-              <a href={`#rule${item.num}`}>
+              <Link href={`/rules?rule=${item.num}`}>
                 <h2>{item.num}. {item.title}</h2>
-              </a>
+              </Link>
             </div>
           )
         }) }

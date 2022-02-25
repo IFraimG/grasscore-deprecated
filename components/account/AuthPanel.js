@@ -9,7 +9,9 @@ const AuthPanel = () => {
       <Image src="/images/locked.png" width="32" height="32" />
       <h1>Авторизация</h1>
       <p>Для того, чтобы попасть в личный кабинет, авторизуйтесь с помощью одной из социальных сетей</p>
-      <button className={styles.btn_discord}>Войти с помощью Discord</button>
+      <Link href="https://discord.com/api/oauth2/authorize?client_id=910623293751562281&redirect_uri=http%3A%2F%2F127.0.0.1%3A5000%2Flogin&response_type=code&scope=identify%20email%20guilds">
+        <button className={styles.btn_discord}>Войти с помощью Discord</button>
+      </Link>
       <p>
         Авторизовываясь, вы соглашаетесь с <Link href="/policy">политикой конфиденциальности сайта.</Link>
       </p>
