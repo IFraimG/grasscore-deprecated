@@ -14,7 +14,7 @@ export const reducers = combineReducers({
   root: rootReducer, rules: rulesReducer
 })
 
-let store = () => createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
+export let store = () => createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 let wrapperStore = createWrapper(store, {debug: true})
 

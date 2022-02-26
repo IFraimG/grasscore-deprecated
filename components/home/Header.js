@@ -2,7 +2,7 @@ import * as styles from '../../styles/layout/header.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Header = () => {
+const Header = (props) => {
   
   return (
     <div className={styles.header}>

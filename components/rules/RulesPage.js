@@ -5,7 +5,7 @@ import RulesPanel from './RulesPanel'
 import RulesItem from './RulesItem'
 
 const RulesPage = (props) => {
-console.log(props);
+
   return (
     <div className={styles.rules__wrapper}>
       <div className={styles.rules__container}>

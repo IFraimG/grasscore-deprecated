@@ -1,6 +1,15 @@
-import axios from "axios"
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setAuthAction } from "../../store/actions/root.actions";
 
-const Account = () => {
+const Account = (props) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (props.data != null) {
+      dispatch(setAuthAction(props.data))
+    }
+  }, [])
 
   return (
     <div>
@@ -10,7 +19,10 @@ const Account = () => {
 }
 
 Account.getInitialProps = async (ctx) => {
-  // const resJSON = await fetch("http://localhost:5000/login", {method: ""})
+  const resJSON = await fetch("http://localhost:5000/hello/" + ctx.query.id, {method: 'POST'})
+  let res = await resJSON.json()
+
+  return { data: res }
 }
 
 export default Account

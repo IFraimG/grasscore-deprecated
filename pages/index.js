@@ -1,9 +1,12 @@
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import HomePage from '../components/home/HomePage'
-import { setModalAction } from '../store/actions/root.actions'
+import { getAuthAction, setModalAction } from '../store/actions/root.actions'
+import { getAuthThunk } from '../store/thunk/root.thunk'
+import withRedux from 'next-redux-wrapper';
+import wrapperStore from '../store/store'
 
-export default function Home() {
+const Home = () => {
   const dispatch = useDispatch()
   const isModal = useSelector((state) => state.root.isModal)
 
@@ -13,3 +16,5 @@ export default function Home() {
     <HomePage isModal={isModal} setModal={setModal} />
   )
 }
+
+export default Home
