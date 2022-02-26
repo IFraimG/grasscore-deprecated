@@ -18,9 +18,8 @@ const rootReducer = (state = rootState, action) => {
       return { ...state, isModal: action.payload }
     }
     case "SET_AUTH": {
-      Cookies.set('dsUserID', action.payload.id, { expires: 2592e3 });
-      Cookies.set('dsUserEmail', action.payload.email, { expires: 2592e3 });
-      Cookies.set('dsUserName', action.payload.name, { expires: 2592e3 });
+      // Cookies.set('dsUserID', action.payload.id, { expires: 2592e3 });
+      // Cookies.set('dsUserEmail', action.payload.email, { expires: 2592e3 });
 
       return { ...state, auth: { ...action.payload }, isAuth: true }
     }
@@ -28,11 +27,10 @@ const rootReducer = (state = rootState, action) => {
     case "GET_AUTH": {
       let id = Cookies.get('dsUserID');
       let email = Cookies.get('dsUserEmail');
-      let name = Cookies.get('dsUserName');
     
       console.log(id);
       let isAuth = id == null ? false : true
-      return { ...state, auth: { id, email, name }, isAuth }
+      return { ...state, auth: { id, email }, isAuth }
     }
     default: return { ...state }
   }

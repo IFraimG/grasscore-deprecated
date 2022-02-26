@@ -6,6 +6,7 @@ const Account = (props) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log(props.data);
     if (props.data != null) {
       dispatch(setAuthAction(props.data))
     }
@@ -18,12 +19,18 @@ const Account = (props) => {
   )
 }
 
-Account.getInitialProps = async (ctx) => {
-  const resJSON = await fetch("http://localhost:5000/hello/" + ctx.query.id, {method: 'POST'})
-  let res = await resJSON.json()
+export const getServerSideProps = async (ctx) => {
+  if (ctx.query?.id != null) {
+    const resJSON = await fetch(`http://localhost:5000/hello/${ctx.query.id}?token=${ctx.query.access_token}`, {method: 'POST'})
+    let res = await resJSON.json()
 
-  return { data: res }
+    return {redirect: { destination: "/account", permament: false }, props: { data: res }} 
+  } else if (ctx.req.cookies?.dsUserID != null && ctx.req.cookies?.token != null) {
+    const resJSON = await fetch(`http://localhost:5000/hello/${ctx.req.cookies.dsUserID}?token=${ctx.req.cookies.token}`, {method: 'POST'})
+    let res = await resJSON.json()
+
+    return {props: { data: res }}
+  } else return {redirect: { destination: "/", permament: false }}
 }
 
 export default Account
-
